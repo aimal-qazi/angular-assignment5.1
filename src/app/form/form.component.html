@@ -1,0 +1,108 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+    <div class="top">
+      <div class="fname">
+        <p>First Name <span style="color: red">*</span></p>
+        <input
+          type="text"
+          placeholder="Enter First Name"
+          formControlName="firstName"
+        />
+      </div>
+      <div class="lname">
+        <p>Last Name <span style="color: red">*</span></p>
+        <input
+          type="text"
+          placeholder="Enter Last Name"
+          formControlName="lastName"
+        />
+      </div>
+    </div>
+    <div class="middle1">
+      <div class="email">
+        <p>Email <span style="color: red">*</span></p>
+        <input type="text" placeholder="Enter Email" formControlName="email" />
+      </div>
+      <div class="birth">
+        <p>DOB <span style="color: red">*</span></p>
+        <input type="date" formControlName="dob" />
+      </div>
+    </div>
+    <div class="middle1">
+      <div class="email">
+        <p>Gender <span style="color: red">*</span></p>
+        <select formControlName="gender">
+          <option value="" selected disabled>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      <div class="birth">
+        <p>Class <span style="color: red">*</span></p>
+        <input
+          type="number"
+          placeholder="Enter Class"
+          formControlName="class"
+        />
+      </div>
+    </div>
+    <div class="top">
+      <div class="fname">
+        <p>Address</p>
+        <input
+          type="text"
+          placeholder="Enter Address"
+          formControlName="address"
+        />
+      </div>
+      <div class="lname">
+        <p>Contact</p>
+        <input
+          type="number"
+          placeholder="Enter Phone Number"
+          formControlName="contact"
+        />
+      </div>
+    </div>
+    <div class="top">
+      <div class="fname">
+        <p>Parent Email <span style="color: red">*</span></p>
+        <input
+          type="text"
+          placeholder="Enter Parent Email"
+          formControlName="parentEmail"
+        />
+      </div>
+      <div class="lname">
+        <p>Password</p>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          formControlName="password"
+        />
+      </div>
+    </div>
+    <div class="desc">
+      <p>Description</p>
+      <input
+        type="text"
+        placeholder="Enter Description"
+        formControlName="desc"
+      />
+    </div>
+    <div class="btn">
+      <p
+        style="color: red"
+        *ngIf="userForm.controls['firstName'].errors?.['required'] || userForm.controls['lastName'].errors?.['required'] || userForm.controls['email'].errors?.['required'] || userForm.controls['gender'].errors?.['required'] || userForm.controls['dob'].errors?.['required'] || userForm.controls['class'].errors?.['required'] || userForm.controls['parentEmail'].errors?.['required']"
+      >
+        * Please fill in all the fields *
+      </p>
+      <button
+        [disabled]="userForm.controls['firstName'].errors?.['required'] || userForm.controls['lastName'].errors?.['required'] || userForm.controls['email'].errors?.['required'] || userForm.controls['gender'].errors?.['required'] || userForm.controls['dob'].errors?.['required'] || userForm.controls['class'].errors?.['required'] || userForm.controls['parentEmail'].errors?.['required']"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
